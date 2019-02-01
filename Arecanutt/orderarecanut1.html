@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	
+	<script type="text/javascript">
+		function validate(){
+			var pattern1=/^[a-zA-Z]+$/;
+			var pattern2=/^[a-zA-Z0-9]+$/;
+			// var pattern3=/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
+
+			var pattern3=/^[+]?([0-9]{3})?[-]?(0-9){10}$/
+			var x = document.getElementById("fname").value;
+			var y = document.getElementById("lname").value;
+			var z = document.getElementById("address").value;
+			var ph = document.getElementById("phone").value;
+			if (x==""){
+				alert ("First name required");
+				document.getElementById("fname").focus();
+				return false;
+
+			}
+			else if (!x.match(pattern1)) {
+				alert("Characters only allowed for firstname");
+				return false;
+				
+				document.getElementById("fname").value="";
+				document.getElementById("fname").focus();
+			}
+			else if (y==""){
+				alert("Last name required");
+				document.getElementById("lname").focus();
+				return false;
+			}
+			else if (!y.match(pattern1)) {
+				alert("Characters only allowed for lastname");
+				return false;
+				
+				document.getElementById("lname").value="";
+				document.getElementById("lname").focus();
+			}
+			else if (z=="") {
+				alert("Address required");
+				document.getElementById("address").focus();
+				return false;
+			}
+			else if (!z.match(pattern1)) {
+				alert("Characters only allowed for address");
+				return false;
+				
+				document.getElementById("address").value="";
+				document.getElementById("address").focus();
+			}
+			else if (ph=="") {
+				alert("Phone Number required");
+				document.getElementById("phone").focus();
+				return false;
+			}
+			else if(!ph.match(pattern2)){
+				alert("Enter valid phone number");
+				return false;
+				document.getElementById("phone").value="";
+				document.getElementById("phone").focus();
+			}
+			else if ((document.getElementById("10' Round Plate").checked||document.getElementById("10' Round Deep Plate").checked||document.getElementById("9' Round Plate").checked||document.getElementById("12' Partition  Plate").checked||document.getElementById("8' square Plate").checked||document.getElementById("6' square Plate").checked||document.getElementById("4' square Plate").checked||document.getElementById("8' Oval Bowl").checked||document.getElementById("8' Heart Shaped Plate").checked||document.getElementById("3' Round Bowl").checked||document.getElementById("Spoon").checked)==false) {
+				alert("Please select atleast one items");
+				return false;
+			}
+			else if(((document.getElementById("10' Round Plate").checked)&&(document.getElementById("10' Round Plate_piece")==""))==true){
+				alert("Please enter the number of 10' Round Plate you want to buy");
+				return false;
+			}
+			else if(((document.getElementById("duna").checked)&&(document.getElementById("duna_piece")==""))==true){
+				alert("Please enter the number of duna you want to buy");
+				return false;
+			}
+			else if(((document.getElementById("bota").checked)&&(document.getElementById("bota_piece")==""))==true){
+				alert("Please enter the number of bota you want to buy");
+				return false;
+			}
+
+			else{
+				return true;
+			}
+		}
+		function total_price(){
+			document.getElementById("total").value=document.getElementById("10' Round Plate_piece").value*12+document.getElementById("10' Round Deep Plate_piece").value*11+document.getElementById("9' Round Plate_piece").value*10+document.getElementById("12' Partition  Plate_piece").value*14+document.getElementById("8' square Plate_piece").value*8+document.getElementById("6' square Plate_piece").value*7+document.getElementById("4' square Plate_piece").value*4+document.getElementById("8' Oval Bowl_piece").value*6+document.getElementById("8' Heart Shaped Plate_piece").value*10+document.getElementById("3' Round Bowl_piece").value*2+document.getElementById("Spoon_piece").value*1.5;
+		}
+	</script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="container">
+	<div id="mainpic">
+    </div>   
+    <div id="menu">
+       	<ul>
+            <li class="menuitem"><a href="indexarecanut.html">Home</a></li>
+            <li class="menuitem"><a href="arecanut.html">About</a></li>
+            <li class="menuitem"><a href="photoarecanut.html">Photo Gallery</a></li>
+            <li class="menuitem"><a href="ordercanut1.html">Order</a></li>
+        </ul>
+    </div>   
+	<div id="content"> 
+		<table cellspacing="10" border="0">
+			<form method="POST" action="index1.php">
+				<tr>
+					<td>&nbsp;</td>
+					<td style="font-size: 20px"><strong>Please place your order here:</strong></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>First Name: </td>
+					<td><input type="text" name="fname" id="fname"></td>
+				</tr>
+				<tr>
+					<td>Last Name: </td>
+					<td><input type="text" name="lname" id="lname"></td>
+				</tr>
+				<tr>
+					<td>Address: </td>
+					<td><input type="text" name="address" id="address"></td>
+				</tr>
+				<tr>
+					<td>Phone Number: </td>
+					<td><input type="text" name="phone" id="phone"></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td><input type="checkbox" name="10' Round Plate" id="10' Round Plate"> 10' Round Plate</td>
+					<td>Pieces:</td>
+					<td><input type="number" name="10' Round Plate_piece" id="10' Round Plate_piece" size="3" value="0"></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td><input type="checkbox" name="10' Round Deep Plate" id="10' Round Deep Plate"> 10' Round Deep Plate</td>
+					<td>Pieces:</td>
+					<td><input type="number" name="10' Round Deep Plate_piece" id="10' Round Deep Plate_piece" size="3" value="0"></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td><input type="checkbox" name="9' Round Plate" id="9' Round Plate"> 9' Round Plate</td>
+					<td>Pieces:</td>
+					<td><input type="number" name="9' Round Plate_piece" id="9' Round Plate_piece" size="3" value="0"></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td><input type="checkbox" name="12' Partition  Plate" id="12' Partition  Plate"> 12' Partition  Plate</td>
+					<td>Pieces:</td>
+					<td><input type="number" name="12' Partition  Plate" id="12' Partition  Plate" size="3" value="0"></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td><input type="checkbox" name="8' square Plate" id="8' square Plate"> 8' square Plate</td>
+					<td>Pieces:</td>
+					<td><input type="number" name="8' square Plate_piece" id="8' square Plate_piece" size="3" value="0"></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td><input type="checkbox" name="6' square Plate" id="6' square Plate"> 6' square Plate</td>
+					<td>Pieces:</td>
+					<td><input type="number" name="6' square Plate_piece" id="6' square Plate_piece" size="3" value="0"></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td><input type="checkbox" name="4' square Plate" id="4' square Plate">4' square Plate</td>
+					<td>Pieces:</td>
+					<td><input type="number" name="4' square Plate_piece" id="4' square Plate_piece" size="3" value="0"></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td><input type="checkbox" name="8' Oval Bowl" id="8' Oval Bowl"> 8' Oval Bowl</td>
+					<td>Pieces:</td>
+					<td><input type="number" name="8' Oval Bowl_piece" id="8' Oval Bowl_piece" size="3" value="0"></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td><input type="checkbox" name="8' Heart Shaped Plate" id="8' Heart Shaped Plate"> 8' Heart Shaped Plate</td>
+					<td>Pieces:</td>
+					<td><input type="number" name="8' Heart Shaped Plate_piece" id="8' Heart Shaped Plate_piece" size="3" value="0"></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td><input type="checkbox" name="3' Round Bowl" id="3' Round Bowl">3' Round Bowl</td>
+					<td>Pieces:</td>
+					<td><input type="number" name="3' Round Bowl" id="3' Round Bowl_piece" size="3" value="0"></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td><input type="checkbox" name="Spoon" id="Spoon">Spoon</td>
+					<td>Pieces:</td>
+					<td><input type="number" name="Spoon_piece" id="Spoon_piece" size="3" value="0"></td>
+				</tr>
+				<tr>
+					<td>Total Price:</td>
+					<td><input type="text" name="total" id="total" onclick="total_price()" placeholder="Click here to get total value"></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td><input type="submit" value="Submit" onclick="return validate()"></td>
+				</tr>
+			</form>
+		</table>			
+		       
+    </div>
+   </div>
+</body>
+</html>
